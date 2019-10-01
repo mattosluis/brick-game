@@ -22,13 +22,15 @@ public class BallView : MonoBehaviour
             _brickView.PerformDamage(1f);
         } 
 
-        if (collision.gameObject.tag == "player")
+        if (collision.gameObject.tag == "Player")
         {
             //collision.gameObject
+            _ballController.AngleChange(_ballController.CalcBallAngleReflect(collision));
         } 
         else
         {
             //_brickView.PerformDamage(1);
+            _ballController.PerfectAngleReflect(collision);
         }
     }
 }

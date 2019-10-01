@@ -25,6 +25,23 @@ public class BallController : MonoBehaviour
 
     public void PerfectAngleReflect(Collision2D collision)
     {
+        _ballModel.Direction = Vector2.Reflect(_ballModel.Direction, collision.contacts[0].normal);
 
+        _ballRigidBody.velocity = _ballModel.Direction * _ballModel.Speed;
     }
+
+    public Vector2 CalcBallAngleReflect(Collision2D collision)
+    {
+        float playerPixels = 120f;
+        float unityScaled = playerPixels / 2f / 100f;
+        float scaleFactor = 1.5f;
+
+        float angledegunityScale = (collision.transform.position.x - transform.position.x + unityScaled) * scaleFactor;
+
+        float angleDeg = angledegunityScale * 100f;
+        float angleRad = angleDeg * Mathf.PI / 180f;
+
+        return new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+    }
+
 }
