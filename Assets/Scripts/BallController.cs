@@ -44,4 +44,10 @@ public class BallController : MonoBehaviour
         return new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
     }
 
+    public void resetPosition()
+    {
+        _ballModel.Direction = new Vector2(0.7071f, 0.7071f);
+        _ballModel.transform.position = new Vector2(0,0);
+        AngleChange(_ballModel.Direction);
+    }
 }
