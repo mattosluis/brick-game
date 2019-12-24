@@ -41,7 +41,9 @@ public class BallController : MonoBehaviour
         float angleDeg = angledegunityScale * 100f;
         float angleRad = angleDeg * Mathf.PI / 180f;
 
-        return new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+        Vector2 a =  new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+        a.x = Mathf.Clamp(a.x, -0.9f, 0.9f);
+        return a;
     }
 
     public void resetPosition()

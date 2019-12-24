@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
 
     public void Move(float axisX)
     {
-        Debug.Log(axisX);
         if ((_playerTransform.position.x < 1.4f && axisX > 0f) || (_playerTransform.position.x > -1.4f && axisX < 0f))
             _playerTransform.Translate(axisX * _playerModel.Speed, 0f, 0f);
 
@@ -46,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     public void ActivePanelGameOver()
     {
-        _playerView.ActivePanelGameOver("Perdeu", _playerModel.Name, _playerModel.Score, _playerModel.JogadasEfetuadas);
+        _playerView.ActivePanelGameOver("Perdeu", _playerModel.Name, _playerModel.Score);
     }
 
     public void addJogada()
@@ -54,9 +53,25 @@ public class PlayerController : MonoBehaviour
         _playerModel.JogadasEfetuadas++;
     }
 
-    public void addScore()
+    public void addScore(string color)
     {
-        _playerModel.Score++;
+        if (color == "yellow")
+        {
+            _playerModel.Score += 4;
+        }
+        else if (color == "purple")
+        {
+            _playerModel.Score += 3;
+        }
+        else if (color == "blue")
+        {
+            _playerModel.Score += 2;
+        }
+        else if (color == "white")
+        {
+            _playerModel.Score += 1;
+        }
+
     }
 
     public void DestroyBrick()
@@ -65,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
         if (_playerModel.QtyBrick <= 0)
         {
-            _playerView.ActivePanelGameOver("Ganhou", _playerModel.Name, _playerModel.Score, _playerModel.JogadasEfetuadas);
+            _playerView.ActivePanelGameOver("Ganhou", _playerModel.Name, _playerModel.Score);
         }
     }
 }

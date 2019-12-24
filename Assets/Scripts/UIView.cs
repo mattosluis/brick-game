@@ -15,16 +15,22 @@ public class UIView : MonoBehaviour
     public Text _score;
     public Text _jogadas;
 
-    public void ActivePanelGameOver(string title, string playerName, int score, int jogadas)
+    public void ActivePanelGameOver(string title, string playerName, int score)
     {
         panel.SetActive(true);
         _title.text = title + " " + playerName;
         _score.text = "Score: " + score;
-        _jogadas.text = "Jogadas: " + jogadas;
+        Time.timeScale = 0;
     }
 
     public void RestartGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("brickgame");
+    }
+
+    public void backToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

@@ -12,7 +12,7 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private string _name;
     private int _jogadasEfetuadas;
     private int _score;
-    private int _qtyBrick = 16;
+    private int _qtyBrick = 40;
 
     public int Lifes { get => _lifes; set => _lifes = value;}
     public float ScaleX { get => _scaleX; set => _scaleX = value; }

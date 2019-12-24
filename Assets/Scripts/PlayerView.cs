@@ -29,9 +29,9 @@ public class PlayerView : MonoBehaviour
         _ballView.resetBallPosition();
     }
 
-    public void ActivePanelGameOver(string title, string playerName, int score, int jogadas)
+    public void ActivePanelGameOver(string title, string playerName, int score)
     {
-        _uiView.ActivePanelGameOver(title, playerName, score, jogadas);
+        _uiView.ActivePanelGameOver(title, playerName, score);
     }
 
     public void addJogada()
@@ -39,9 +39,9 @@ public class PlayerView : MonoBehaviour
         _playerController.addJogada();
     }
 
-    public void addScore()
+    public void addScore(string color)
     {
-        _playerController.addScore();
+        _playerController.addScore(color);
     }
 
     public void DestroyBrick()

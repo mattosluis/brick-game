@@ -22,7 +22,7 @@ public class BallView : MonoBehaviour
             BrickView _brickView;
             _brickView = collision.gameObject.GetComponent<BrickView>();
             _brickView.PerformDamage(1f);
-            _brickView.addScore();
+            _brickView.addScore(_brickView.getColor());
             _brickView.DestroyBrick();
         } 
 
@@ -41,6 +41,7 @@ public class BallView : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             _wallView = collision.gameObject.GetComponent<WallView>();
+            SoundController.PlayhitGround();
             _wallView.hitLive();
         }
     }

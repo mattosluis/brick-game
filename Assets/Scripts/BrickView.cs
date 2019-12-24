@@ -17,13 +17,18 @@ public class BrickView : MonoBehaviour
         _brickController.TakeDamage(damage);
     }
 
-    public void addScore()
+    public void addScore(string color)
     {
-        _playerView.addScore();
+        _playerView.addScore(color);
     }
 
     public void DestroyBrick()
     {
         _playerView.DestroyBrick();
+    }
+
+    public string getColor()
+    {
+        return _brickController.getColor();
     }
 }
